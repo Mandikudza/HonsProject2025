@@ -1,0 +1,15 @@
+#!/bin/sh
+#SBATCH --account=compsci
+#SBATCH --partition=ada
+#SBATCH --nodes=1 --ntasks=2
+#SBATCH --mem=32G 
+#SBATCH --time=10:00:00
+#SBATCH --job-name="trainingModels-job"
+#SBATCH --mail-user=dngman001@myuct.ac.za
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+source /home/dngman001/rq-cnl2/myenv/bin/activate
+
+cd /scratch/dngman001/aug19
+
+python3 /home/dngman001/rq-cnl2/rqcnl3/training.py

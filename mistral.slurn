@@ -1,0 +1,18 @@
+#!/bin/sh
+#SBATCH --account=compsci
+#SBATCH --partition=ada
+#SBATCH --nodes=1 --ntasks=2
+#SBATCH --mem=32G 
+#SBATCH --time=10:00:00
+#SBATCH --job-name="trainingMistral-job"
+#SBATCH --mail-user=dngman001@myuct.ac.za
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+
+export HUGGING_FACE_HUB_TOKEN="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"
+
+source /home/dngman001/rq-cnl2/myenv/bin/activate
+
+cd /scratch/dngman001/aug19
+
+python3 /home/dngman001/rq-cnl2/rqcnl3/mistral.py
